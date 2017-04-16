@@ -1,0 +1,97 @@
+<html>
+    <link rel="shortcut icon" href="Retro.png"/>
+    <body>		
+        <script>
+//https://books.google.com.br/books?id=6Ze7DQAAQBAJ&pg=PA106&lpg=PA106&dq=Symbol.hasInstance&source=bl&ots=ACN0VWB1SL&sig=rx2pWE3l6nQpsleJAPRwCo3mLbg&hl=pt-BR&sa=X&ved=0ahUKEwjcurSSgaTTAhUDl5AKHVatCGIQ6AEIaDAI#v=onepage&q=Symbol.hasInstance&f=false
+            let SpecialNumber = () => {
+            };
+
+//https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+            /*O método Object.defineProperty() define uma nova propriedade diretamente em 
+             * um objeto, ou modifica uma propriedade existente em um objeto, e retorna o objeto.
+             */
+            Object.defineProperty(SpecialNumber, Symbol.hasInstance, {
+                value: function (v) {
+                    console.log(v);
+                    console.log(v instanceof Number);
+                    return (v instanceof Number) && (v >= 1 && v <= 100);
+                }
+            });
+
+            var two = new Number(2);
+            zero = new Number(0);
+
+            console.log(two instanceof SpecialNumber);
+            console.log("------------------------");
+            console.log(zero instanceof SpecialNumber);
+
+            //http://2ality.com/2015/09/well-known-symbols-es6.html        
+            /*       const ReferenceType = {
+             [Symbol.hasInstance] (value) {
+             console.log("valor: ",value);
+             return (value !== null
+             && (typeof value === 'object'
+             || typeof value === 'function'));
+             }
+             };
+             const obj1 = {};
+             console.log(obj1);
+             console.log(typeof obj1);
+             console.log(obj1 instanceof Object); // true
+             console.log(obj1 instanceof ReferenceType); // true
+             
+             const obj2 = Object.create(null);
+             console.log(obj2);
+             console.log(typeof obj2);
+             console.log(obj2 instanceof Object); // false
+             console.log(obj2 instanceof ReferenceType); // true     
+             
+             */
+
+
+
+            /*   class MyArray {
+             static [Symbol.hasInstance] (instance) {
+             console.log(instance);
+             return this.prototype.isPrototypeOf(instance) ||
+             Array.isArray(instance);
+             }
+             }
+             
+             console.log([1] instanceof MyArray); // true
+             
+             class MySubArray extends MyArray {
+             };
+             console.log(new MySubArray instanceof MyArray); // true
+             
+             */
+            // console.log("----------------instanceof--------------");
+            // defining constructors
+            //   function C() {}
+
+            //   var o = new C();
+
+            // true, because: Object.getPrototypeOf(o) === C.prototype
+            // console.log(Object.getPrototypeOf(o));
+            //console.log(C.prototype);
+            //   console.log(o instanceof C);
+            /*  
+             console.log("----------------Array.isArray()--------------");
+             let umArray = ["Michel", "Adriano", "Medeiros"];
+             
+             let ehArray = Array.isArray(umArray);
+             console.log(ehArray);
+             */
+        </script>
+        <p></p>	
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof"
+           target="_blank">
+            instanceof
+        </a>		
+        <p></p>	
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray"
+           target="_blank">
+            Array.isArray()
+        </a>		
+    </body>
+</html>

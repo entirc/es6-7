@@ -1,0 +1,26 @@
+<html>
+	<body>		
+		<script>
+			//https://repl.it/CiaI/14
+			let toString = Object.prototype.toString;
+			let noop = function() {};
+
+			console.log(Symbol.iterator[Symbol.toStringTag]);   // => 'Symbol'
+			console.log((function* () {})[Symbol.toStringTag]); // => 'GeneratorFunction'
+			console.log(new Map()[Symbol.toStringTag]);         // => 'Map'
+			console.log(new Promise(noop)[Symbol.toStringTag]); // => 'Promise'
+			
+			console.log(toString.call(Symbol.iterator));     // => '[object Symbol]'
+			console.log(toString.call(function* () {}));     // => '[object GeneratorFunction]'
+			console.log(toString.call(new Map()));           // => '[object Map]'
+			console.log(toString.call(new Promise(noop)));   // => '[object Promise]' 
+			
+		</script>
+		<p></p>	
+			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag"
+			   target="_blank">
+				Symbol.toStringTag
+			</a>		
+	
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <link rel="shortcut icon" href="Retro.png"/>
+    <body>
+        <a href="https://crismaster.github.io/es6-examples/"
+           target="_blank">
+            Examples of all features in ECMAScript 6
+        </a>	
+
+        <p></p>
+        <script>
+            function get(array, param1, param2) {
+                console.log(array);
+                console.log(array[0]);
+                console.log(param1);
+                console.log(param2);
+                document.write(JSON.stringify(array));
+                //console.log(`Value params get():`, JSON.stringify(array), param1, param2);
+                let url = `${array[0]}${param1}${array[1]}${param2}`;
+                console.log(`Value url:`, url);
+            }
+
+            let bar = `Hola`;
+            let baz = `Mundo`;
+            let asd = `Cristhian`;
+
+            //versão 6
+            get `http://example.com/foo?bar=${bar + baz}&quux=${asd}`;
+
+            console.log("--------------------VERSÃO 5-------------------------");
+
+            //versão 5
+            get(["http://example.com/foo?bar=", "&quux=", ""], bar + baz, asd);
+
+
+        </script>
+    </body>
+</html>

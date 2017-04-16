@@ -1,0 +1,25 @@
+<html>
+	<body>		
+		<script>
+			//You Don't Know JS: ES6 & Beyond página 209 e 210
+			//https://books.google.com.br/books?id=rec6CwAAQBAJ&pg=PA209&lpg=PA209&dq=Symbol.unscopables&source=bl&ots=RLX8bYSvim&sig=GsVyJQe8lIsr6Ne3qvibVyK5Peg&hl=pt-BR&sa=X&ved=0ahUKEwiUzvzdxZ_TAhXEQ5AKHb4DBCMQ6AEIajAN#v=onepage&q=Symbol.unscopables&f=false
+			var obj = {a:1,b:2,c:3};
+			a=10,b=20,c=30;
+			console.log(obj);
+			
+			obj[Symbol.unscopables]={a:false, b:true, c:false};
+
+			with(obj){
+				console.log(obj);
+				console.log(a,b,c);
+			}
+			
+		</script>
+		<p></p>	
+			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/unscopables"
+			   target="_blank">
+				Symbol.unscopables
+			</a>		
+	
+	</body>
+</html>

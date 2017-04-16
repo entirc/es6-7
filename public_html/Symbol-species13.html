@@ -1,0 +1,81 @@
+<html>
+	<body>		
+		<script>
+			//https://rainsoft.io/detailed-overview-of-well-known-symbols/
+			class MyArray extends Array {  
+			  isEmpty() {
+				return this.length === 0;
+			  }
+			  static get [Symbol.species]() {
+				return Array;
+			 }
+			}
+			
+			let array = new MyArray(3, 5, 4);  
+			
+			console.log(array);
+			
+			console.log(array.isEmpty()); // => false  
+			
+			let odds = array.filter(item => item % 2 === 1);  
+			
+			console.log(odds);
+			console.log(typeof odds);
+			
+			console.log(odds instanceof Array);   // => true  
+			console.log(odds instanceof MyArray); // => false  
+			
+			//let teste = odds.isEmpty();
+			//console.log(teste);
+			
+			let jaSouDoArray = [2,4,8];
+			console.log(jaSouDoArray);
+			console.log(typeof jaSouDoArray);
+			
+		/*	console.log("---------EX2----------");
+			
+			//https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/
+			class Foo extends Array {
+				static get [Symbol.species]() {
+					return this;
+				}
+			}
+
+			class Bar extends Array {
+				static get [Symbol.species]() {
+					return Array;
+				}
+			}
+			
+			let t1 = (new Foo().map(function(){}) instanceof Foo);
+			console.log(t1);
+			
+			let t2 = (new Bar().map(function(){}) instanceof Bar);
+			console.log(t2);
+			
+			let t3 = (new Bar().map(function(){}) instanceof Array);
+			console.log(t3);			
+			*/
+			/*console.log("---------EX3----------");
+			
+			class MyArray extends Array {
+			  // Overwrite species to the parent Array constructor
+			  static get [Symbol.species]() { return Array; }
+			}
+			
+			var a = new MyArray(1,2,3);
+			var mapped = a.map(x => x * x);
+			
+			console.log(mapped);
+			
+			console.log(mapped instanceof MyArray); // false
+			console.log(mapped instanceof Array);   // true*/
+		</script>
+		<p></p>	
+			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/species"
+			   target="_blank">
+				Symbol.species
+			</a>		
+	
+	</body>
+</html>

@@ -1,0 +1,122 @@
+<html>
+    <link rel="shortcut icon" href="Retro.png"/>
+    <body>		
+        <script>
+            //https://www.priberam.pt/dlpo/itera
+
+//http://javascript.tutorialhorizon.com/2015/06/27/es6-iterators-and-iterables/
+            //https://strongloop.com/strongblog/introduction-to-es6-iterators/
+            /*
+             let table = [8, 10, 6];
+             for (var key in table) {
+             console.log(key + ' = ' + table[key]);
+             }
+             
+             for (var key of table) {
+             console.log(key + ' = ' + table[key]);
+             }
+             */
+            /*
+             var list = [3, 5, 7];
+             console.log(list);
+             list.foo = 'bar';
+             
+             for (var key in list) {
+             console.log(key); // 0, 1, 2, foo
+             }
+             
+             for (var value of list) {
+             console.log(value); // 3, 5, 7
+             }
+             */
+
+            //http://exploringjs.com/es6/ch_iteration.html
+            // console.log(`\uD83D\uDC0A`);
+
+            //https://jakearchibald.com/2014/iterators-gonna-iterate/
+
+
+
+//Iterators - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Iteratores_e_geradores
+            /*   var numbers = [1, 2, 3];
+             var numbersIterator = numbers[Symbol.iterator]();
+             console.log(numbersIterator.next());
+             
+             var arr = ['w', 'y', 'k', 'o', 'p'];
+             var eArr = arr[Symbol.iterator]();
+             console.log(eArr.next()); // w
+             console.log(eArr.next()); // y
+             console.log(eArr.next()); // k
+             console.log(eArr.next()); // o
+             console.log(eArr.next()); // p
+             console.log(eArr.next());
+             
+             */
+
+
+            console.log("versão 6");
+            let fibonacci1 = {
+                [Symbol.iterator] () {
+                    let pre = 0, cur = 1;
+                    return {
+                        next() {
+                            [pre, cur] = [cur, pre + cur];
+                            console.log("cur " + cur);
+                            console.log("pre " + pre);
+                            return {
+                                done: false, value: cur};
+                        }
+                    };
+                }
+            };
+
+            for (let n of fibonacci1) {
+                if (n > 10)
+                    break
+                console.log(n);
+            }
+
+            console.log("<<<<<<versão 5>>>>>>");
+            var fibonacci = {
+                next: (function () {
+                    var pre = 0, cur = 1;
+                    return function () {
+                        console.log("cur " + cur);
+                        tmp = pre;
+                        console.log("tmp " + tmp);
+                        pre = cur;
+                        console.log("pre " + pre);
+                        cur += tmp;
+                        console.log("return cur " + cur);
+                        console.log("-------------------");
+                        return cur;
+                    };
+                })()
+            };
+
+            var n;
+            for (; ; ) {
+                n = fibonacci.next();
+                if (n > 10)
+                    break;
+                console.log(n);
+            }
+
+
+            /*var myIterable = {};
+             
+             myIterable[Symbol.iterator] = function* () {
+             yield 1;
+             yield 2;
+             yield 3;
+             };
+             console.log([...myIterable]); // [1, 2, 3]*/
+        </script>
+        <p></p>	
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator"
+           target="_blank">
+            Symbol.iterator
+        </a>		
+
+    </body>
+</html>

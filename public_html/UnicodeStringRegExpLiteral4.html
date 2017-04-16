@@ -1,0 +1,55 @@
+<html>
+        <link rel="shortcut icon" href="Retro.png"/>
+	<body>
+			<a href="https://unicode-table.com/pt/"
+			   target="_blank">
+				Unicode® Tabela de caracteres
+			</a>	
+				
+		<p></p>
+		<script>
+			//let nome = "Michel Adriano Medeiros";
+			//console.log(nome.match(/m/gi));
+			
+			//console.log(nome.match(/(?:e)/));			
+			//console.log(nome.match(/(?!e)/));
+			
+
+			
+			/*console.log("--------------Versão 5 --------------------");
+			"𠮷".length === 2;
+			"𠮷".match(/(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF][\uD800-\uDBFF][\uDC00-\uDFFF][\uD800-\uDBFF](?![\uDC00-\uDFFF])(?:[^\uD800-\uDBFF]^)[\uDC00-\uDFFF])/)[0].length === 2;
+			"𠮷" === "\uD842\uDFB7";
+			
+		*/
+			
+			console.log("--------------Versão 6 --------------------");
+			console.log(`Compare "𠮷".length === 2:`, "𠮷".length === 2);
+			console.log(`Compare "𠮷".match(/./u)[0].length === 2:`, "𠮷".match(/./u)[0].length === 2);
+			console.log(`Compare "𠮷" === "\\uD842\\uDFB7":`, "𠮷" === "\uD842\uDFB7");
+			console.log(`Compare "𠮷" === "\\u{20BB7}":`, "𠮷" === "\u{20BB7}");
+			console.log(`Compare "𠮷".codePointAt(0) == 0x20BB7:`, "𠮷".codePointAt(0) == 0x20BB7);
+		
+			console.log("𠮷".match(/./u));
+			
+		/*	console.log("---------------INÍCIO SYMBOL-----------");
+			
+			let teste = /𠮷/;
+			console.log(typeof teste);
+			teste[Symbol.match] = false;
+			
+			console.log("---------------FIM SYMBOL-----------");		*/
+			
+			console.log("\uD842");
+			console.log("\uDFB7");
+			
+			//representação Hexadecimal
+			//0x20BB7
+			//representação decimal
+			console.log("𠮷".codePointAt(0));
+			
+			for (let codepoint of "𠮷") console.log(`Value codepoint:`, codepoint);
+			
+		</script>
+	</body>
+</html>

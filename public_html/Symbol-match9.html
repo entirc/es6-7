@@ -1,0 +1,29 @@
+<html>
+	<body>		
+		<script>
+			var re = /foo/;
+			console.log(typeof re);
+			console.log(re);
+			
+			/*
+			However, if you set Symbol.match to false, the isRegExp check (that uses the match property) 
+			will indicate that the object is not a regular expression object. The methods startsWith and 
+			endsWith won't throw a TypeError as a consequence.
+			*/
+			re[Symbol.match] = false;
+			
+			let t1 = '/foo/'.startsWith(re); // true
+			console.log(t1);
+			
+			let t2 = '/baz/'.endsWith(re);   // false
+			console.log(t2);
+			
+		</script>
+		<p></p>	
+			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/match"
+			   target="_blank">
+				Symbol.match
+			</a>		
+	
+	</body>
+</html>

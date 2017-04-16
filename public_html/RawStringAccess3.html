@@ -1,0 +1,36 @@
+<html>
+        <link rel="shortcut icon" href="Retro.png"/>
+	<body>
+			<a href="https://crismaster.github.io/es6-examples/"
+			   target="_blank">
+				Examples of all features in ECMAScript 6
+			</a>	
+				
+		<p></p>
+		<script>
+			
+		let texto = String.raw `Texto com \\n vários \n escapes`;	
+	    console.log(texto);
+			
+		let texto1 = `Texto com \n vários \\n escapes`;	
+	    console.log(texto1);
+			
+		function quux(strings, ...values) {
+			document.write(strings);
+			console.log(strings);
+			console.log(values);
+			console.log(`Compare strings[0] === "foo\\n":`, strings[0] === "foo\n");
+		  	console.log(`Compare strings[1] === "bar":`, strings[1] === "bar");
+		  	console.log(`Compare values[0] === 42:`, values[0] === 42);
+		  	console.log(`Compare strings.raw[0] === "foo\\\\n":`, strings.raw[0] === "foo\\n");
+		  	console.log(`Compare strings.raw[1] === "bar":`, strings.raw[1] === "bar");
+		}
+		quux `foo\n${ 42 }bar`;
+
+		console.log(`Compare String.war:`, String.raw `foo\n${ 42 }bar` === "foo\\n42bar");
+			
+			
+				
+		</script>
+	</body>
+</html>

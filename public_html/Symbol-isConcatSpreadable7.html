@@ -1,0 +1,42 @@
+<html>
+	<body>		
+		<script>
+			var alpha = ['a', 'b', 'c'], 
+			numeric = [1, 2, 3]; 
+
+			var alphaNumeric = alpha.concat(numeric); 
+
+			console.log(alphaNumeric); // Result: ['a', 'b', 'c', 1, 2, 3]
+			
+			
+			
+			
+			
+			numeric[Symbol.isConcatSpreadable] = false;
+			var alphaNumeric1 = alpha.concat(numeric); 
+
+			console.log(alphaNumeric1); // Result: ['a', 'b', 'c', [1, 2, 3] ]
+			
+			
+			
+			
+			
+			var x = [1, 2, 3];
+
+			var fakeArray = { 
+			  [Symbol.isConcatSpreadable]: true, 
+			  length: 2, 
+			  0: 'hello', 
+			  1: 'world' 
+			}
+
+			console.log(x.concat(fakeArray)); // [1, 2, 3, "hello", "world"]
+		</script>
+		<p></p>	
+			<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Symbol/isConcatSpreadable"
+			   target="_blank">
+				Symbol.isConcatSpreadable
+			</a>		
+	
+	</body>
+</html>

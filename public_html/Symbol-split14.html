@@ -1,0 +1,24 @@
+<html>
+	<body>		
+		<script>
+
+			let frase = "Brasileiros pensam que estudando um livro sobre o assunto, se tornam especialistas no assunto.";
+			let agora = frase.split(",");
+			console.log(agora);
+			
+			//http://xahlee.info/javascript_es2016/ECMAScript_2016_Language_Specification.html#sec-symbol.split
+			let teste = /,/;
+			console.log(typeof teste);
+			
+			let resultado = teste[Symbol.split](frase);
+			console.log(resultado);
+			
+		</script>
+		<p></p>	
+			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/split"
+			   target="_blank">
+				Symbol.split
+			</a>		
+	
+	</body>
+</html>

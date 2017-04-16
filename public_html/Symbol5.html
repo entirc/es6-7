@@ -1,0 +1,286 @@
+<html>
+    <link rel="shortcut icon" href="Retro.png"/>
+    <body>
+
+        <a href="https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/"
+           target="_blank">
+            Metaprogramming in ES6: Symbols and why they're awesome
+        </a>
+
+        <p></p>
+
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Symbol"
+           target="_blank">
+            Symbol
+        </a>
+
+        <script>
+            //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures        
+
+
+            //Uncaught TypeError: Symbol is not a constructor
+            //let novo = new Symbol();
+            /*   
+             let t1 = Symbol()===Symbol();
+             console.log(t1);
+             
+             let t2 = Symbol('foo')===Symbol('foo');
+             console.log(t2);
+             
+             let t3 = Symbol('foo')===Symbol('bar');
+             console.log(t3);
+             */
+
+            /* 
+             //http://devdocs.io/javascript/global_objects/symbol
+             //Transformar o Symbol em objeto
+             var sym = Symbol('foo');
+             console.log(typeof sym);     // "symbol"
+             console.log(sym);
+             var symObj = Object(sym);
+             console.log(typeof symObj);  // "object"
+             console.log(symObj);
+             */
+
+
+            /* 
+             console.log("*********Symbol.for()***********");
+             
+             let t2 = Symbol('foo')===Symbol('foo');
+             console.log(t2);
+             
+             let t4 = Symbol.for('foo')===Symbol.for('foo');
+             console.log(t4);
+             
+             let t5 = Symbol('foo')===Symbol.for('foo');
+             console.log(t5);
+             */
+
+
+            /*
+             console.log("*********Symbol.keyFor()***********");
+             var globalSym = Symbol.for('foo'); // create a new global symbol
+             let t1 = Symbol.keyFor(globalSym); // "foo"
+             console.log(t1);
+             
+             var localSym = Symbol('nome');
+             let t2 = Symbol.keyFor(localSym); // undefined
+             console.log(t2);
+             
+             */
+
+            //console.log("*********Symbol.prototype.toSource()***********");
+            //Nenhum exemplo funcional encontrado.
+
+
+            /*
+             console.log("*********Symbol.prototype.toString()***********");
+             let v = Symbol('desc').toString();
+             console.log(typeof v);   // "Symbol(desc)"
+             
+             // well-known symbols
+             console.log(Symbol.iterator.toString());  // "Symbol(Symbol.iterator)
+             
+             // global symbols
+             console.log(Symbol.for('foo').toString()); // "Symbol(foo)"
+             */
+
+            // console.log("*********Symbol.prototype.valueOf()***********");
+            //nenhum exemplo funcional encontrado.
+
+            /*
+             var arr = ['a', 'b', 'c'];
+             console.log(arr);
+             console.log(Object.keys(arr)); // console: ['0', '1', '2']
+             
+             let v = Symbol("foo") !== Symbol("foo");
+             console.log(v);
+             const foo = Symbol();
+             const bar = Symbol();
+             console.log(typeof foo === "symbol");
+             typeof bar === "symbol";
+             let obj = {};
+             obj[foo] = "foo";
+             obj[bar] = "bar";
+             JSON.stringify(obj); // {}
+             Object.keys(obj); // []
+             console.log(obj);
+             console.log(Object.keys(obj));
+             Object.getOwnPropertyNames(obj); // []
+             let teste  = Object.getOwnPropertySymbols(obj); // [ foo, bar ]
+             console.log(teste);
+             
+             */
+
+            //IMUTABILIDADE - https://udgwebdev.com/imutabilidade-no-es6
+//http://2ality.com/2014/12/es6-symbols.html
+/*
+            var myObj = {};
+            var fooSym = Symbol.for('foo');
+            var otherSym = Symbol.for('foo');
+            myObj[fooSym] = 'baz';
+            myObj[otherSym] = 'bing';
+            console.log(myObj);
+
+            let t1 = fooSym === otherSym;
+            console.log(t1);
+
+            console.log(myObj[fooSym]);
+            let t2 = myObj[fooSym] === 'bing';
+            console.log(t2);
+
+            console.log(myObj[otherSym]);
+            let t3 = myObj[otherSym] === 'bing';
+            console.log(t3);
+*/
+
+            /*	
+             //não funcionou
+             iframe = document.createElement('iframe');
+             iframe.src = String(window.location);
+             document.body.appendChild(iframe);
+             
+             console.log("----------------Comparar-------------");
+             let i = iframe.contentWindow;
+             console.log(i);
+             //let t4 = iframe.contentWindow.Symbol===Symbol;
+             //console.log(t4);
+             
+             */
+
+
+            /*
+             var myObj = {};
+             var fooSym = Symbol('foo');
+             console.log(fooSym);
+             var otherSym = Symbol('bar');
+             console.log(otherSym);
+             myObj['foo'] = 'bar';
+             myObj[fooSym] = 'baz';
+             myObj[otherSym] = 'bing';
+             
+             console.log(myObj);
+             console.log(myObj.foo);
+             console.log(myObj[fooSym]);
+             
+             
+             let t4 = JSON.stringify(myObj);
+             console.log(t4);
+             
+             let t5 = myObj.foo === 'bar';
+             console.log(t5);
+             
+             let t6 = myObj[fooSym] === 'baz';
+             console.log(t6);
+             
+             let t7 = myObj[otherSym] === 'bing';
+             console.log(t7);
+             
+             console.log("keys");
+             let t8 = Object.keys(myObj);
+             console.log(t8);
+             
+             console.log("getOwnPropertyNames");
+             let t9 = Object.getOwnPropertyNames(myObj); 
+             console.log(t9);
+             
+             console.log("getOwnPropertySymbols");
+             let t10 = Object.getOwnPropertySymbols(myObj);
+             console.log(t10);
+             console.log(typeof t10[0]);
+             console.log(t10[0]);
+             
+             console.log("fooSym: ",fooSym);
+             let t11 = Object.getOwnPropertySymbols(myObj)[0] === fooSym;
+             console.log(t11);
+             
+             */
+
+
+
+            /*		let t1 = Symbol("foo") !== Symbol("foo")
+             console.log(t1)
+             
+             const foo = Symbol()
+             const bar = Symbol()
+             
+             let t2 = typeof foo === "symbol"
+             console.log(typeof foo);
+             console.log(t2);
+             
+             let t3 = typeof bar === "symbol"
+             console.log(typeof bar);
+             console.log(t3);
+             
+             console.log("----------------OBJ----------------");
+             let obj = {}
+             obj[foo] = "foo"
+             console.log(obj);
+             
+             
+             obj[bar] = "bar"
+             
+             let t4 = JSON.stringify(obj) // {}
+             console.log(t4);
+             
+             let t5 = Object.keys(obj) // []
+             console.log(t5);
+             
+             let t6 = Object.getOwnPropertyNames(obj) // []
+             console.log(t6);
+             
+             let t7 = Object.getOwnPropertySymbols(obj) // [ foo, bar ]
+             console.log(t7);*/
+        </script>
+
+        <p></p>	
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys"
+           target="_blank">
+            Object.keys()
+        </a>
+        <script>
+            /*console.log("----------------Object.keys()--------------");
+             var arr = ['a', 'b', 'c'];
+             console.log(Object.keys(arr));
+             
+             // array com objeto
+             var obj = { 0: 'a', 1: 'b', 2: 'c' };
+             console.log(Object.keys(obj));
+             
+             // array como objeto com ordenação aleatória por chave
+             var an_obj = { 100: 'a', 2: 'b', 7: 'c' };
+             console.log(Object.keys(an_obj)); 
+             */
+        </script>
+
+        <p></p>	
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames"
+           target="_blank">
+            Object.getOwnPropertyNames()
+        </a>
+        <script>
+            /*	console.log("----------------Object.getOwnPropertyNames()--------------");
+             var arr = ['a', 'b', 'c'];
+             console.log(arr);
+             console.log(Object.getOwnPropertyNames(arr));
+             
+             // Array-like object
+             var obj = { 0: 'a', 1: 'b', 2: 'c' };
+             console.log(obj);
+             console.log(Object.getOwnPropertyNames(obj)); */
+        </script>
+
+        <p></p>	
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols"
+           target="_blank">
+            Object.getOwnPropertySymbols()
+        </a>		
+
+        <p></p>	
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for"
+           target="_blank">
+            Symbol.for()
+        </a>		
+
+    </body>
+</html>
